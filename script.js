@@ -13,6 +13,7 @@ let dinoX = canvas.width / 2;
 let score = 0;
 let speed = 2;
 let lives = 3;
+let play = false;
 
 const cocos = [];
 const fireballs = [];
@@ -215,9 +216,12 @@ function updateLives() {
     livesDisplay.textContent = `Lives: ${lives}`;
 }
 
+
+
 /**
  * Bucle principal del juego.
  */
+
 function gameLoop() {
     drawMatrix();
     updateCocos();
@@ -226,6 +230,10 @@ function gameLoop() {
     updateLives();
     requestAnimationFrame(gameLoop);
 }
+
+
+
+
 
 /**
  * Maneja los eventos de teclado para el movimiento y salto del Dino.
@@ -253,11 +261,6 @@ document.addEventListener('keydown', (event) => {
     } else if (event.code === 'ArrowRight' && dinoX < (canvas.width-30)) {
 */
 
-// Crear cocos cada 2.5 segundos
-setInterval(createCoco, 2500);
-
-// Crear cocos dorados cada 20 segundos
-setInterval(createCocoGold, 20000);
 
 // Crear bolas de fuego según la puntuación
 setInterval(() => {
@@ -270,5 +273,13 @@ setInterval(() => {
     }
 }, 2000);
 
-// Iniciar el bucle del juego
-gameLoop();
+// Boton de Play todo pedorro
+function playgame() {
+    const playbutton = document.getElementById("botonjugar");
+    playbutton.remove();
+    gameLoop();
+    // Crear cocos cada 2.5 segundos
+    setInterval(createCoco, 2500);
+    // Crear cocos dorados cada 20 segundos
+    setInterval(createCocoGold, 20000);
+}

@@ -55,3 +55,25 @@ body {
     background: url('./img/fireball.png') no-repeat center center;
     background-size: contain;
 }
+
+#botonjugar {
+    z-index: 3;
+    position: relative;
+    text-align: center;
+    margin: 15% 45%;
+    padding: 2rem 5rem;
+    font-size: large;
+    background-color: #12ba12;
+    border-color: #0e520e;
+    border-radius: 1em;
+    color: #ded2d2;
+}
+
+#botonjugar:active {
+    background-color: #61b661;
+    border-color: #2f4a2f;
+}
+
+canvas {
+    position: relative;
+}
